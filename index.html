@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1 class="fade-in">Shivanshu's Portfolio</h1>
+        <p class="subtitle">Shivanshu Nishad</p>
+        <p class="subtitle">College: UPES | Batch: 2022-2026</p>
+        <p class="subtitle">Skills: Cloud Computing, Problem Solving, Web Development, Java</p>
+    </header>
+    <main>
+        <div class="project-grid">
+            <div class="project-card" onclick="showPopup('Titanic Visualization')">
+                <img src="thumbnails/titanic.jpg" alt="Titanic Visualization">
+                <h2>Titanic Visualization</h2>
+                <p>Data visualization and analysis of Titanic dataset.</p>
+            </div>
+            <div class="project-card" onclick="showPopup('Evidential AI')">
+                <img src="thumbnails/evidential_ai.jpg" alt="Evidential AI">
+                <h2>Evidential AI</h2>
+                <p>Exploring uncertainty-aware AI models.</p>
+            </div>
+            <div class="project-card" onclick="showPopup('Machine Learning Model')">
+                <img src="thumbnails/ml_model.jpg" alt="Machine Learning Model">
+                <h2>Machine Learning Model</h2>
+                <p>Developing and evaluating predictive models.</p>
+            </div>
+            <div class="project-card" onclick="showPopup('Streamlit Multipage Project')">
+                <img src="thumbnails/streamlit.jpg" alt="Streamlit Multipage">
+                <h2>Streamlit Multipage Project</h2>
+                <p>Interactive multipage web application using Streamlit.</p>
+            </div>
+        </div>
+    </main>
+    
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2 id="popup-title"></h2>
+            <p>More details coming soon...</p>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('.project-card').hover(function() {
+                $(this).addClass('hovered');
+            }, function() {
+                $(this).removeClass('hovered');
+            });
+        });
+
+        function showPopup(title) {
+            document.getElementById("popup-title").innerText = title;
+            document.getElementById("popup").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ff9966, #ff5e62);
+            text-align: center;
+            animation: fadeIn 2s ease-in;
+        }
+
+        header {
+            padding: 20px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #f1f1f1;
+            margin: 5px 0;
+        }
+
+        .project-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            width: 250px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-bottom: 3px solid #ff5e62;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .popup-content {
+            background: white;
+            padding: 20px;
+            width: 50%;
+            margin: 10% auto;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .close {
+            font-size: 24px;
+            cursor: pointer;
+            float: right;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</body>
+</html>
