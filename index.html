@@ -3,152 +3,336 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Shivanshu Nishad | Software Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --accent: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s, color 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-3px);
+            color: var(--secondary);
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: var(--secondary);
+        }
+        
+        section {
+            padding: 3rem 0;
+            background-color: white;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        .education-item, .project-item, .certification-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .education-item:last-child, .project-item:last-child, .certification-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .item-title {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .item-date {
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        .item-subtitle {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+        
+        .item-details {
+            margin-left: 1rem;
+        }
+        
+        .item-details li {
+            margin-bottom: 0.5rem;
+            list-style-type: disc;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .skill-category {
+            flex: 1;
+            min-width: 250px;
+            background-color: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-align: center;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+        }
+        
+        .skill-list {
+            list-style-type: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-list li::before {
+            content: '•';
+            color: var(--secondary);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-right: 0.5rem;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .item-header {
+                flex-direction: column;
+            }
+            
+            .item-date {
+                margin-top: 0.3rem;
+            }
+            
+            .skills-container {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1 class="fade-in">Shivanshu's Portfolio</h1>
-        <p class="subtitle">Shivanshu Nishad</p>
-        <p class="subtitle">College: UPES | Batch: 2022-2026</p>
-        <p class="subtitle">Skills: Cloud Computing, Problem Solving, Web Development, Java</p>
+        <div class="header-content">
+            <!-- Add your profile image here -->
+            <!-- <img src="profile.jpg" alt="Shivanshu Nishad" class="profile-img"> -->
+            <h1>Shivanshu Nishad</h1>
+            <p class="tagline">Software Engineer | Cloud Enthusiast | Web Developer</p>
+            
+            <div class="social-links">
+                <a href="https://github.com/Shivanshunishad18" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://leetcode.com/u/0TxQdn6YCm/" target="_blank"><i class="fas fa-code"></i></a>
+                <a href="https://www.linkedin.com/in/shivanshu-nishad-799a18254/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+            
+            <div class="contact-info">
+                <a href="mailto:shivanshunishad18@gmail.com"><i class="fas fa-envelope"></i> shivanshunishad18@gmail.com</a>
+                <a href="tel:9580001725"><i class="fas fa-phone"></i> 9580001725</a>
+            </div>
+        </div>
     </header>
-    <main>
-        <div class="project-grid">
-            <div class="project-card" onclick="showPopup('Titanic Visualization')">
-                <img src="thumbnails/titanic.jpg" alt="Titanic Visualization">
-                <h2>Titanic Visualization</h2>
-                <p>Data visualization and analysis of Titanic dataset.</p>
-            </div>
-            <div class="project-card" onclick="showPopup('Evidential AI')">
-                <img src="thumbnails/evidential_ai.jpg" alt="Evidential AI">
-                <h2>Evidential AI</h2>
-                <p>Exploring uncertainty-aware AI models.</p>
-            </div>
-            <div class="project-card" onclick="showPopup('Machine Learning Model')">
-                <img src="thumbnails/ml_model.jpg" alt="Machine Learning Model">
-                <h2>Machine Learning Model</h2>
-                <p>Developing and evaluating predictive models.</p>
-            </div>
-            <div class="project-card" onclick="showPopup('Streamlit Multipage Project')">
-                <img src="thumbnails/streamlit.jpg" alt="Streamlit Multipage">
-                <h2>Streamlit Multipage Project</h2>
-                <p>Interactive multipage web application using Streamlit.</p>
-            </div>
-        </div>
-    </main>
     
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="closePopup()">&times;</span>
-            <h2 id="popup-title"></h2>
-            <p>More details coming soon...</p>
-        </div>
-    </div>
-
-    <script>
-        $(document).ready(function() {
-            $('.project-card').hover(function() {
-                $(this).addClass('hovered');
-            }, function() {
-                $(this).removeClass('hovered');
-            });
-        });
-
-        function showPopup(title) {
-            document.getElementById("popup-title").innerText = title;
-            document.getElementById("popup").style.display = "block";
-        }
-
-        function closePopup() {
-            document.getElementById("popup").style.display = "none";
-        }
-    </script>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #ff9966, #ff5e62);
-            text-align: center;
-            animation: fadeIn 2s ease-in;
-        }
-
-        header {
-            padding: 20px;
-            color: white;
-            font-size: 24px;
-        }
-
-        .subtitle {
-            font-size: 16px;
-            color: #f1f1f1;
-            margin: 5px 0;
-        }
-
-        .project-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-            width: 250px;
-            text-align: center;
-            padding: 10px;
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-bottom: 3px solid #ff5e62;
-        }
-
-        .project-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        .popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-        }
-
-        .popup-content {
-            background: white;
-            padding: 20px;
-            width: 50%;
-            margin: 10% auto;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .close {
-            font-size: 24px;
-            cursor: pointer;
-            float: right;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-    </style>
-</body>
-</html>
+    <div class="container">
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>Motivated Software Engineer with experience in web development and cloud computing. Seeking to leverage my skills in building scalable solutions and contributing to innovative projects in a dynamic environment.</p>
+            </div>
+        </section>
+        
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+                <div class="item-header">
+                    <h3 class="item-title">UPES Dehradun, India</h3>
+                    <span class="item-date">August 2022 - June 2026</span>
+                </div>
+                <p class="item-subtitle">Bachelors of Technology in CSE (Cloud Computing And Virtualisation Technology)</p>
+                <p>CGPA: 6.8/10.0</p>
+            </div>
+            
+            <div class="education-item">
+                <div class="item-header">
+                    <h3 class="item-title">Lucknow Public School, Sitapur, India</h3>
+                    <span class="item-date">March 2021 - May 2022</span>
+                </div>
+                <p class="item-subtitle">CBSE | Secondary School Certificate</p>
+                <p>Percentage: 66/100.0</p>
+            </div>
+            
+            <div class="education-item">
+                <div class="item-header">
+                    <h3 class="item-title">Lucknow Public School, Sitapur, India</h3>
+                    <span class="item-date">March 2019 - May 2020</span>
+                </div>
+                <p class="item-subtitle">CBSE | Higher Secondary Certificate</p>
+                <p>Percentage: 72.2/100.0</p>
+            </div>
+        </section>
+        
+        <section id="projects">
+            <h2 class="section-title">Projects & Experience</h2>
+            
+            <div class="project-item">
+                <div class="item-header">
+                    <h3 class="item-title">Development of Management System for tracking hostel residents</h3>
+                    <span class="item-date">2024</span>
+                </div>
+                <ul class="item-details">
+                    <li><strong>Technologies Used:</strong> JAVA, HTML, CSS, MySQL, JDBCs</li>
+                    <li>Developing a web-based Hostel Management System enabling students to book hostel/PG rooms online with features like search filters, real-time booking, and user reviews.</li>
+                    <li>Building using Java, Spring Boot, MySQL, HTML, and CSS, implementing secure database integration, seamless user interface, and payment gateway support.</li>
+                </ul>
+            </div>
+            
+            <div class="project-item">
+                <div class="item-header">
+                    <h3 class="item-title">Srijan Social Internship - Website Developer, Bandana Peace Foundation</h3>
+                    <span class="item-date">June - July 2023</span>
+                </div>
+                <ul class="item-details">
+                    <li>Designed and developed a fully functional website to promote NGO's mission and activities.</li>
+                    <li>Implemented user-friendly navigation and donation features.</li>
+                    <li>Ensured mobile responsiveness.</li>
+                    <li>Integrated social media links to enhance community engagement.</li>
+                </ul>
+            </div
