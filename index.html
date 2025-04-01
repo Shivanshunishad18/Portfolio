@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shivanshu Nishad | Software Engineer</title>
+    <title>Shivanshu Nishad | Cloud Computing Professional</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #2c3e50;
@@ -18,113 +19,122 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background-color: #f5f7fa;
-            color: #333;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
         }
         
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
+        /* Header Styles */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
+            background-color: var(--primary);
             color: white;
             padding: 2rem 0;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
         
         .header-content {
-            max-width: 800px;
-            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
         
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid white;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 4px solid var(--secondary);
         }
         
-        h1 {
+        .profile-text h1 {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
         }
         
-        .tagline {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            font-weight: 300;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: transform 0.3s, color 0.3s;
-        }
-        
-        .social-links a:hover {
-            transform: translateY(-3px);
-            color: var(--secondary);
+        .profile-text p {
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
         
         .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
+            margin-top: 1rem;
         }
         
-        .contact-info a {
-            color: white;
-            text-decoration: none;
+        .contact-info p {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 10px;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--dark);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
             transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
         }
         
-        .contact-info a:hover {
+        nav a:hover {
             color: var(--secondary);
+            background-color: rgba(255,255,255,0.1);
         }
         
+        /* Section Styles */
         section {
-            padding: 3rem 0;
-            background-color: white;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 4rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        section:last-child {
+            border-bottom: none;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             color: var(--primary);
             position: relative;
-            padding-bottom: 0.5rem;
         }
         
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
@@ -132,207 +142,494 @@
             background-color: var(--secondary);
         }
         
+        /* About Section */
         .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 1.1rem;
-        }
-        
-        .education-item, .project-item, .certification-item {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .education-item:last-child, .project-item:last-child, .certification-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        
-        .item-header {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: center;
         }
         
-        .item-title {
-            font-weight: 600;
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-img {
+            flex: 1;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .project-info {
+            padding: 1.5rem;
+        }
+        
+        .project-info h3 {
+            margin-bottom: 1rem;
             color: var(--primary);
-            font-size: 1.2rem;
         }
         
-        .item-date {
-            color: var(--secondary);
-            font-weight: 500;
+        .project-info p {
+            margin-bottom: 1.5rem;
         }
         
-        .item-subtitle {
-            font-style: italic;
-            margin-bottom: 0.5rem;
-            color: #666;
+        .project-links {
+            display: flex;
+            gap: 1rem;
         }
         
-        .item-details {
-            margin-left: 1rem;
+        .project-links a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
         }
         
-        .item-details li {
-            margin-bottom: 0.5rem;
-            list-style-type: disc;
+        .project-links a:hover {
+            background-color: var(--primary);
         }
         
+        /* Skills Section */
         .skills-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 2rem;
             justify-content: center;
         }
         
         .skill-category {
             flex: 1;
             min-width: 250px;
-            background-color: var(--light);
+            background: white;
             padding: 1.5rem;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .skill-category h3 {
             color: var(--primary);
             margin-bottom: 1rem;
-            text-align: center;
-            border-bottom: 2px solid var(--secondary);
             padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary);
         }
         
-        .skill-list {
-            list-style-type: none;
-        }
-        
-        .skill-list li {
+        .skill-item {
             margin-bottom: 0.8rem;
             display: flex;
             align-items: center;
+            gap: 10px;
         }
         
-        .skill-list li::before {
-            content: '•';
+        .skill-item i {
             color: var(--secondary);
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-right: 0.5rem;
         }
         
+        /* Education Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--secondary);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -12px;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content p {
+            color: #666;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+        }
+        
+        .submit-btn {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+        }
+        
+        /* Footer */
         footer {
             background-color: var(--dark);
             color: white;
             text-align: center;
             padding: 2rem 0;
-            margin-top: 2rem;
         }
         
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .item-header {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile {
+                flex-direction: column;
+                margin-bottom: 2rem;
+            }
+            
+            .about-content {
                 flex-direction: column;
             }
             
-            .item-date {
-                margin-top: 0.3rem;
+            .timeline::after {
+                left: 31px;
             }
             
-            .skills-container {
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .left::after, .right::after {
+                left: 21px;
+            }
+            
+            .right {
+                left: 0;
+            }
+            
+            .contact-container {
                 flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header Section -->
     <header>
-        <div class="header-content">
-            <!-- Add your profile image here -->
-            <!-- <img src="profile.jpg" alt="Shivanshu Nishad" class="profile-img"> -->
-            <h1>Shivanshu Nishad</h1>
-            <p class="tagline">Software Engineer | Cloud Enthusiast | Web Developer</p>
-            
-            <div class="social-links">
-                <a href="https://github.com/Shivanshunishad18" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://leetcode.com/u/0TxQdn6YCm/" target="_blank"><i class="fas fa-code"></i></a>
-                <a href="https://www.linkedin.com/in/shivanshu-nishad-799a18254/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            </div>
-            
-            <div class="contact-info">
-                <a href="mailto:shivanshunishad18@gmail.com"><i class="fas fa-envelope"></i> shivanshunishad18@gmail.com</a>
-                <a href="tel:9580001725"><i class="fas fa-phone"></i> 9580001725</a>
+        <div class="container header-content">
+            <div class="profile">
+                <!-- Replace with your actual image -->
+                <img src="profile.jpg" alt="Shivanshu Nishad" class="profile-img">
+                <div class="profile-text">
+                    <h1>Shivanshu Nishad</h1>
+                    <p>Software Engineer | Cloud Enthusiast | Web Developer</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Sitapur, Uttar Pradesh</p>
+                        <p><i class="fas fa-phone"></i> +91-9580001725</p>
+                        <p><i class="fas fa-envelope"></i> shivanshunishad18@gmail.com</p>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
-    
-    <div class="container">
-        <section id="about">
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
-                <p>Motivated Software Engineer with experience in web development and cloud computing. Seeking to leverage my skills in building scalable solutions and contributing to innovative projects in a dynamic environment.</p>
+                <div class="about-text">
+                    <p>Motivated Software Engineer with experience in web development and cloud computing. Seeking to leverage my skills in building scalable solutions and contributing to innovative projects in a dynamic environment.</p>
+                    <p>With hands-on experience in Java, MySQL, and web technologies, I bring both technical expertise and problem-solving skills to development teams. My experience in building full-stack applications and managing databases makes me a versatile candidate for various technical roles.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/shivanshu-nishad-799a18254/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Shivanshunishad18" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://leetcode.com/u/0TxQdn6YCm/" target="_blank"><i class="fas fa-code"></i></a>
+                    </div>
+                </div>
             </div>
-        </section>
-        
-        <section id="education">
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>Hostel Management System</h3>
+                        <p>Developing a web-based Hostel Management System enabling students to book hostel/PG rooms online with features like search filters, real-time booking, and user reviews.</p>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>NGO Website - Bandana Peace Foundation</h3>
+                        <p>Designed and developed a fully functional website to promote NGO's mission and activities with user-friendly navigation, donation features, and mobile responsiveness.</p>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <div class="skill-item"><i class="fas fa-check"></i> Java</div>
+                    <div class="skill-item"><i class="fas fa-check"></i> MySQL</div>
+                    <div class="skill-item"><i class="fas fa-check"></i> HTML/CSS</div>
+                    <div class="skill-item"><i class="fas fa-check"></i> JDBC</div>
+                </div>
+                <div class="skill-category">
+                    <h3>Web Development</h3>
+                    <div class="skill-item"><i class="fas fa-check"></i> Frontend Development</div>
+                    <div class="skill-item"><i class="fas fa-check"></i> Responsive Design</div>
+                    <div class="skill-item"><i class="fas fa-check"></i> Database Integration</div>
+                    <div class="skill-item"><i class="fas fa-check"></i> UI/UX Principles</div>
+                </div>
+                <div class="skill-category">
+                    <h3>Professional Skills</h3>
+                    <div class="skill-item"><i class="fas fa-check"></i> Problem Solving</div>
+                    <div class="skill-item"><i class="fas fa-check"></i> Team Collaboration</div>
+                    <div class="skill-item"><i class="fas fa-check"></i> Project Management</div>
+                    <div class="skill-item"><i class="fas fa-check"></i> Communication</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
             <h2 class="section-title">Education</h2>
-            <div class="education-item">
-                <div class="item-header">
-                    <h3 class="item-title">UPES Dehradun, India</h3>
-                    <span class="item-date">August 2022 - June 2026</span>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Bachelor of Technology in Computer Science</h3>
+                        <p>Cloud Computing and Virtualization Technology</p>
+                        <p>University of Petroleum and Energy Studies (UPES)</p>
+                        <p>Aug 2022 - June 2026 </p>
+                    </div>
                 </div>
-                <p class="item-subtitle">Bachelors of Technology in CSE (Cloud Computing And Virtualisation Technology)</p>
-                <p>CGPA: 6.8/10.0</p>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Class XII</h3>
+                        <p>Lucknow Public School, Sitapur</p>
+                        <p>March 2021 - May 2022 </p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Class X</h3>
+                        <p>Lucknow Public School, Sitapur</p>
+                        <p>March 2019 - May 2020 </p>
+                    </div>
+                </div>
             </div>
-            
-            <div class="education-item">
-                <div class="item-header">
-                    <h3 class="item-title">Lucknow Public School, Sitapur, India</h3>
-                    <span class="item-date">March 2021 - May 2022</span>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Sitapur, Uttar Pradesh, India</p>
+                    <p><i class="fas fa-phone"></i> +91-9580001725</p>
+                    <p><i class="fas fa-envelope"></i> shivanshunishad18@gmail.com</p>
+                    
+                    <div class="social-links" style="margin-top: 2rem;">
+                        <a href="https://www.linkedin.com/in/shivanshu-nishad-799a18254/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Shivanshunishad18" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://leetcode.com/u/0TxQdn6YCm/" target="_blank"><i class="fas fa-code"></i></a>
+                    </div>
                 </div>
-                <p class="item-subtitle">CBSE | Secondary School Certificate</p>
-                <p>Percentage: 66/100.0</p>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
             </div>
-            
-            <div class="education-item">
-                <div class="item-header">
-                    <h3 class="item-title">Lucknow Public School, Sitapur, India</h3>
-                    <span class="item-date">March 2019 - May 2020</span>
-                </div>
-                <p class="item-subtitle">CBSE | Higher Secondary Certificate</p>
-                <p>Percentage: 72.2/100.0</p>
-            </div>
-        </section>
-        
-        <section id="projects">
-            <h2 class="section-title">Projects & Experience</h2>
-            
-            <div class="project-item">
-                <div class="item-header">
-                    <h3 class="item-title">Development of Management System for tracking hostel residents</h3>
-                    <span class="item-date">2024</span>
-                </div>
-                <ul class="item-details">
-                    <li><strong>Technologies Used:</strong> JAVA, HTML, CSS, MySQL, JDBCs</li>
-                    <li>Developing a web-based Hostel Management System enabling students to book hostel/PG rooms online with features like search filters, real-time booking, and user reviews.</li>
-                    <li>Building using Java, Spring Boot, MySQL, HTML, and CSS, implementing secure database integration, seamless user interface, and payment gateway support.</li>
-                </ul>
-            </div>
-            
-            <div class="project-item">
-                <div class="item-header">
-                    <h3 class="item-title">Srijan Social Internship - Website Developer, Bandana Peace Foundation</h3>
-                    <span class="item-date">June - July 2023</span>
-                </div>
-                <ul class="item-details">
-                    <li>Designed and developed a fully functional website to promote NGO's mission and activities.</li>
-                    <li>Implemented user-friendly navigation and donation features.</li>
-                    <li>Ensured mobile responsiveness.</li>
-                    <li>Integrated social media links to enhance community engagement.</li>
-                </ul>
-            </div
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Shivanshu Nishad. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
